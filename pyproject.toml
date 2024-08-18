@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "rag-study"
+version = "0.1.0"
+description = "study and practice"
+authors = ["myno <minho.yoo.dev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.0"
+black = "^24.8.0"
+flake8 = "^7.1.1"
+
+# 아래 섹션은 black의 설정
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+
+# 아래 섹션은 flake8의 설정
+[tool.flake8]
+ignore = "E203, E501, W503"
+max-line-length = 88
+exclude = ".git,__pycache__,docs/,old/,build/,dist/"
